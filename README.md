@@ -1,8 +1,8 @@
-# Portfilio
+# Portfolio
 my personal [portfolio](https://portfolio-4029d.web.app/#/)
 
 
-##### Firebase deploy steps.
+## Firebase deploy steps.
 
 **These are the steps that will be used to deploy build on the firebase hosting.**
 1. First login into your firebase account that you can create using your google account and create a flutter project.
