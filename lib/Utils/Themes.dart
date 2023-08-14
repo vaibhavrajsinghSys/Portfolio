@@ -2,6 +2,9 @@
 import 'package:flutter/material.dart';
 
 class CustomThemes {
-  final lightThemes = ThemeData(appBarTheme: const AppBarTheme());
-  final darkTheme = ThemeData(appBarTheme: const AppBarTheme());
+  final lightThemes =
+      ThemeData(appBarTheme: const AppBarTheme(centerTitle: true));
+  final darkTheme = ThemeData(
+    appBarTheme: const AppBarTheme(centerTitle: true),
+  );
 }

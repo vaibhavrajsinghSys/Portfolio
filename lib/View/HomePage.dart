@@ -33,11 +33,13 @@ class _MyHomePageState extends State<MyHomePage> {
         appBar: AppBar(
           title: const Text("Portfolio"),
           actions: [
-            IconButton.filled(onPressed: () {}, icon: const Icon(Icons.home)),
-            IconButton.filled(onPressed: () {}, icon: const Icon(Icons.list)),
+            IconButton.outlined(onPressed: () {}, icon: const Icon(Icons.home)),
+            const SizedBox(
+              width: 20,
+            )
           ],
         ),
-        body: Center(child: Text("desktop")));
+        body: const Center(child: Text("desktop")));
   }
 
   Widget tableView() {
@@ -51,6 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget mobileView() {
     return Scaffold(
+      endDrawer: Drawer(
+          width: 200,
+          child: Column(children: [
+            Container(
+              height: 300,
+              color: Colors.red,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {},
+              label: Text("Home"),
+              icon: Icon(Icons.home),
+              backgroundColor: Colors.transparent,
+              extendedIconLabelSpacing: 10,
+            )
+          ])),
       appBar: AppBar(
         title: const Text("Portfolio"),
       ),
