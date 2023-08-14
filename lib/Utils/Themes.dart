@@ -2,9 +2,14 @@
 import 'package:flutter/material.dart';
 
 class CustomThemes {
-  final lightThemes =
-      ThemeData(appBarTheme: const AppBarTheme(centerTitle: true));
+  final lightThemes = ThemeData(
+      appBarTheme: const AppBarTheme(centerTitle: false, titleSpacing: 30));
   final darkTheme = ThemeData(
-    appBarTheme: const AppBarTheme(centerTitle: true),
+    scaffoldBackgroundColor: Colors.black,
+    appBarTheme: AppBarTheme(
+        centerTitle: false,
+        toolbarHeight: 80,
+        color: Colors.transparent,
+        shadowColor: Colors.transparent),
   );
 }

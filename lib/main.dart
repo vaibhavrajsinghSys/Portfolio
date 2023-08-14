@@ -1,8 +1,11 @@
-import 'package:flutter/cupertino.dart';
-import 'package:firebase_core/firebase_core.dart';
+// ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
+
 import 'package:flutter/material.dart';
-import 'Utils/Themes.dart';
-import 'View/HomePage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:portfolio/Statemanagement_Provider/initialState.dart';
+import 'package:portfolio/Utils/Themes.dart';
+import 'package:portfolio/View/HomePage.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,12 +21,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Portfolio',
-      theme: CustomThemes().lightThemes,
-      darkTheme: CustomThemes().darkTheme,
-      home: MyHomePage(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => InitialState()),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Portfolio',
+        theme: CustomThemes().lightThemes,
+        darkTheme: CustomThemes().darkTheme,
+        home: const MyHomePage(),
+      ),
     );
   }
 }
