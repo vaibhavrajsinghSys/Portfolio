@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/Utils/screenSize.dart';
 
-class MyLoginPage extends StatefulWidget {
-  const MyLoginPage({super.key});
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
 
   @override
-  State<MyLoginPage> createState() => _MyLoginPageState();
+  State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyLoginPageState extends State<MyLoginPage> {
+class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     ScreenSize screenSize = ScreenSize();
@@ -30,11 +30,14 @@ class _MyLoginPageState extends State<MyLoginPage> {
 
   Widget desktopView() {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Portfolio"),
-      ),
-      body: const Center(child: Text("desktop")),
-    );
+        appBar: AppBar(
+          title: const Text("Portfolio"),
+          actions: [
+            IconButton.filled(onPressed: () {}, icon: const Icon(Icons.home)),
+            IconButton.filled(onPressed: () {}, icon: const Icon(Icons.list)),
+          ],
+        ),
+        body: Center(child: Text("desktop")));
   }
 
   Widget tableView() {
