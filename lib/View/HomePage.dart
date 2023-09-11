@@ -19,130 +19,46 @@ class _MyHomePageState extends State<MyHomePage> {
     ScreenTypes type = screenSize.getScreenSize(size.width);
     switch (type) {
       case ScreenTypes.desktop:
-        return desktopView();
+        return desktopView(size);
       case ScreenTypes.tablet:
-        return tableView();
+        return tableView(size);
       case ScreenTypes.mobile:
-        return mobileView();
+        return mobileView(size);
       case ScreenTypes.noscreen:
         return emptyScreenView();
     }
   }
 
-  Widget desktopView() {
+  Widget desktopView(Size screenSizeValue) {
     return Consumer(
-      builder: (context, value, child) => CustomScrollView(slivers: [
-        SliverAppBar(
-          title: Text(
-            "data",
-            style: TextStyle(color: Colors.black),
-          ),
-        ),
-        SliverGrid(
-          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-            maxCrossAxisExtent: 500.0,
-            mainAxisSpacing: 100.0,
-            crossAxisSpacing: 100.0,
-            childAspectRatio: 1.0,
-          ),
-          delegate: SliverChildBuilderDelegate(
-            (BuildContext context, int index) {
-              return Container(
-                alignment: Alignment.center,
-                color: Colors.teal[100 * (index % 9)],
-                child: Text('grid item $index'),
-              );
-            },
-            childCount: 200,
-          ),
-        )
-      ]),
+      builder: (context, stateManager, child) => Scaffold(
+          appBar: trailingNavigationButtons(screenSizeValue, context),
+          body: SingleChildScrollView(
+            child: Column(children: []),
+          )),
     );
   }
 
-  // Widget desktopView() {
-  //   Size size = MediaQuery.of(context).size;
-  //   return Consumer(
-  //     builder: (context, stateManager, child) => Scaffold(
-  //         appBar: AppBar(
-  //           titleSpacing: size.width / 10,
-  //           title:
-  //               const CircleAvatar(backgroundColor: Colors.amber, radius: 30),
-  //           actions: [
-  //             Row(children: [
-  //               MaterialButton(
-  //                 shape: const RoundedRectangleBorder(
-  //                     borderRadius: BorderRadius.all(Radius.circular(10))),
-  //                 onPressed: () {},
-  //                 color: Colors.black,
-  //                 hoverColor: Colors.white12,
-  //                 child: const Text("Projects",
-  //                     style: TextStyle(
-  //                         fontFamily: "Borel",
-  //                         color: Colors.white,
-  //                         fontSize: 20)),
-  //               ),
-  //               const SizedBox(width: 10),
-  //               MaterialButton(
-  //                 shape: const RoundedRectangleBorder(
-  //                     borderRadius: BorderRadius.all(Radius.circular(10))),
-  //                 onPressed: () {},
-  //                 color: Colors.black,
-  //                 hoverColor: Colors.white12,
-  //                 child: const Text("About",
-  //                     style: TextStyle(
-  //                         fontFamily: "Borel",
-  //                         color: Colors.white,
-  //                         fontSize: 20)),
-  //               ),
-  //               const SizedBox(width: 10),
-  //               MaterialButton(
-  //                 shape: const RoundedRectangleBorder(
-  //                     borderRadius: BorderRadius.all(Radius.circular(10))),
-  //                 onPressed: () {},
-  //                 color: Colors.black,
-  //                 hoverColor: Colors.white12,
-  //                 child: const Text("Contact",
-  //                     style: TextStyle(
-  //                         fontFamily: "Borel",
-  //                         color: Colors.white,
-  //                         fontSize: 20)),
-  //               ),
-  //             ]),
-  //             const SizedBox(
-  //               width: 50,
-  //             )
-  //           ],
-  //         ),
-  //         body: CustomScrollView(
-  //           slivers: [
-  //             Container(
-  //               color: Colors.red,
-  //               height: 400,
-  //             )
-  //           ],
-  //         )),
-  //   );
-  // }
-
-  Widget tableView() {
+  Widget tableView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-        appBar: AppBar(
-          title: const Text("Portfolio"),
+        appBar: trailingNavigationButtons(screenSizeValue, context),
+        body: SingleChildScrollView(
+          child: Column(children: []),
         ),
-        body: const Center(child: Text("tablet")),
       ),
     );
   }
 
-  Widget mobileView() {
+  Widget mobileView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
         appBar: AppBar(
           title: const Text("Portfolio"),
         ),
-        body: const Center(child: Text("Mobile")),
+        body: SingleChildScrollView(
+          child: Column(children: []),
+        ),
       ),
     );
   }
@@ -152,6 +68,53 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(child: Text("This screen size is not supported!")),
       ),
+    );
+  }
+
+  AppBar trailingNavigationButtons(Size screenSize, BuildContext context) {
+    return AppBar(
+      titleSpacing: screenSize.width / 10,
+      title: const CircleAvatar(
+          foregroundImage: AssetImage("images/ProfileImage.jpg"), radius: 30),
+      actions: [
+        Row(children: [
+          MaterialButton(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            onPressed: () {},
+            color: Colors.black,
+            hoverColor: Colors.white12,
+            child: const Text("Projects",
+                style: TextStyle(
+                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
+          ),
+          const SizedBox(width: 10),
+          MaterialButton(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            onPressed: () {},
+            color: Colors.black,
+            hoverColor: Colors.white12,
+            child: const Text("About",
+                style: TextStyle(
+                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
+          ),
+          const SizedBox(width: 10),
+          MaterialButton(
+            shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10))),
+            onPressed: () {},
+            color: Colors.black,
+            hoverColor: Colors.white12,
+            child: const Text("Contact",
+                style: TextStyle(
+                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
+          ),
+        ]),
+        SizedBox(
+          width: screenSize.width / 10,
+        )
+      ],
     );
   }
 }
