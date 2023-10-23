@@ -2,7 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/Utils/screenSize.dart';
+import 'package:portfolio/View/Drawer/AppDrawer.dart';
 import 'package:provider/provider.dart';
+
+import 'Appbar/trailingNavigationButtons.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -53,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget mobileView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
+        drawer: Drawer(child: DrawerItems(), backgroundColor: Colors.black),
         appBar: AppBar(
           title: const Text("Portfolio"),
         ),
@@ -68,53 +72,6 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Scaffold(
         body: Center(child: Text("This screen size is not supported!")),
       ),
-    );
-  }
-
-  AppBar trailingNavigationButtons(Size screenSize, BuildContext context) {
-    return AppBar(
-      titleSpacing: screenSize.width / 10,
-      title: const CircleAvatar(
-          foregroundImage: AssetImage("images/ProfileImage.jpg"), radius: 30),
-      actions: [
-        Row(children: [
-          MaterialButton(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            onPressed: () {},
-            color: Colors.black,
-            hoverColor: Colors.white12,
-            child: const Text("Projects",
-                style: TextStyle(
-                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
-          ),
-          const SizedBox(width: 10),
-          MaterialButton(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            onPressed: () {},
-            color: Colors.black,
-            hoverColor: Colors.white12,
-            child: const Text("About",
-                style: TextStyle(
-                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
-          ),
-          const SizedBox(width: 10),
-          MaterialButton(
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(10))),
-            onPressed: () {},
-            color: Colors.black,
-            hoverColor: Colors.white12,
-            child: const Text("Contact",
-                style: TextStyle(
-                    fontFamily: "Borel", color: Colors.white, fontSize: 20)),
-          ),
-        ]),
-        SizedBox(
-          width: screenSize.width / 10,
-        )
-      ],
     );
   }
 }

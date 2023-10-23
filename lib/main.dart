@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:portfolio/Statemanagement_Provider/initialState.dart';
 import 'package:portfolio/Utils/Themes.dart';
-import 'package:portfolio/View/HomePage.dart';
+import 'package:portfolio/Utils/routes.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -30,7 +30,13 @@ class MyApp extends StatelessWidget {
         title: 'Portfolio',
         theme: CustomThemes().lightThemes,
         darkTheme: CustomThemes().darkTheme,
-        home: const MyHomePage(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => CustomRoutes().homePage,
+          'projects': (context) => CustomRoutes().projectPage,
+          'about': (context) => CustomRoutes().aboutPage,
+          'contact': (context) => CustomRoutes().contactPage,
+        },
       ),
     );
   }
