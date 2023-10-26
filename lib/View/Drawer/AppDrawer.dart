@@ -7,6 +7,7 @@ class DrawerItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var currentRoute = ModalRoute.of(context)?.settings.name;
     return ListView(
       padding: EdgeInsets.zero,
       children: [
@@ -34,7 +35,10 @@ class DrawerItems extends StatelessWidget {
                 fontFamily: "Borel", color: Colors.white, fontSize: 20),
           ),
           onTap: () {
-            Navigator.pushNamed(context, "home");
+            Navigator.pop(context);
+            if (currentRoute != '/') {
+              Navigator.pushNamed(context, "/");
+            }
           },
         ),
         ListTile(
@@ -44,7 +48,10 @@ class DrawerItems extends StatelessWidget {
                 fontFamily: "Borel", color: Colors.white, fontSize: 20),
           ),
           onTap: () {
-            Navigator.pushNamed(context, "projects");
+            Navigator.pop(context);
+            if (currentRoute != 'projects') {
+              Navigator.pushNamed(context, "projects");
+            }
           },
         ),
         ListTile(
@@ -54,7 +61,10 @@ class DrawerItems extends StatelessWidget {
                 fontFamily: "Borel", color: Colors.white, fontSize: 20),
           ),
           onTap: () {
-            Navigator.pushNamed(context, "contact");
+            Navigator.pop(context);
+            if (currentRoute != 'contact') {
+              Navigator.pushNamed(context, "contact");
+            }
           },
         ),
         ListTile(
@@ -64,7 +74,10 @@ class DrawerItems extends StatelessWidget {
                 fontFamily: "Borel", color: Colors.white, fontSize: 20),
           ),
           onTap: () {
-            Navigator.pushNamed(context, "about");
+            Navigator.pop(context);
+            if (currentRoute != 'about') {
+              Navigator.pushNamed(context, "about");
+            }
           },
         ),
       ],

@@ -35,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget desktopView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-          appBar: trailingNavigationButtons(screenSizeValue, context),
+          appBar: trailingNavigationButtons(screenSizeValue, context, true),
           body: SingleChildScrollView(
             child: Column(children: []),
           )),
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget tableView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-        appBar: trailingNavigationButtons(screenSizeValue, context),
+        appBar: trailingNavigationButtons(screenSizeValue, context, true),
         body: SingleChildScrollView(
           child: Column(children: []),
         ),
@@ -58,7 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, stateManager, child) => Scaffold(
         drawer: Drawer(child: DrawerItems(), backgroundColor: Colors.black),
         appBar: AppBar(
-          title: const Text("Portfolio"),
+          title: const Text("Portfolio",
+              style: TextStyle(
+                  fontFamily: "Borel", color: Colors.white, fontSize: 25)),
         ),
         body: SingleChildScrollView(
           child: Column(children: []),

@@ -5,20 +5,24 @@ import 'package:flutter/material.dart';
 AppBar trailingNavigationButtons(
   Size screenSize,
   BuildContext context,
+  bool showProfilePhoto,
 ) {
+  var currentRoute = ModalRoute.of(context)?.settings.name;
   return AppBar(
     titleSpacing: screenSize.width / 10,
-    title: const CircleAvatar(
-      foregroundImage: AssetImage("images/ProfileImage.jpg"),
-      radius: 30,
-    ),
+    title: showProfilePhoto
+        ? const CircleAvatar(
+            foregroundImage: AssetImage("images/ProfileImage.jpg"), radius: 30)
+        : Container(),
     actions: [
       Row(children: [
         MaterialButton(
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))),
           onPressed: () {
-            Navigator.pushNamed(context, 'projects');
+            if (currentRoute != "projects") {
+              Navigator.pushNamed(context, 'projects');
+            }
           },
           color: Colors.black,
           hoverColor: Colors.white12,
@@ -31,7 +35,9 @@ AppBar trailingNavigationButtons(
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))),
           onPressed: () {
-            Navigator.pushNamed(context, 'about');
+            if (currentRoute != "about") {
+              Navigator.pushNamed(context, 'about');
+            }
           },
           color: Colors.black,
           hoverColor: Colors.white12,
@@ -44,7 +50,9 @@ AppBar trailingNavigationButtons(
           shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.all(Radius.circular(10))),
           onPressed: () {
-            Navigator.pushNamed(context, 'contact');
+            if (currentRoute != "contact") {
+              Navigator.pushNamed(context, 'contact');
+            }
           },
           color: Colors.black,
           hoverColor: Colors.white12,
