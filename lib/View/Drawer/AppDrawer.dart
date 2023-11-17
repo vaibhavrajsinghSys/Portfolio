@@ -11,21 +11,24 @@ class DrawerItems extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.zero,
       children: [
-        Column(
-          children: [
-            IconButton(
-                onPressed: () => {
-                      Navigator.pop(context),
-                    },
-                icon: Icon(Icons.arrow_back)),
-          ],
-        ),
-        const DrawerHeader(
-          decoration: BoxDecoration(color: Colors.green),
-          child: Text(
-            "Vaibhav raj singh",
-            style: TextStyle(
-                fontFamily: "Borel", color: Colors.white, fontSize: 20),
+        DrawerHeader(
+          decoration: BoxDecoration(color: Colors.transparent),
+          child: Column(
+            children: [
+              Container(
+                alignment: Alignment.centerLeft,
+                child: IconButton(
+                    onPressed: () => {
+                          Navigator.pop(context),
+                        },
+                    icon: const Icon(Icons.arrow_back)),
+              ),
+              const Text(
+                "Vaibhav raj singh",
+                style: TextStyle(
+                    fontFamily: "Borel", color: Colors.white, fontSize: 20),
+              ),
+            ],
           ),
         ),
         ListTile(

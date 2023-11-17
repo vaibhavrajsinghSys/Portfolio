@@ -50,7 +50,7 @@ class ProjectPage extends StatelessWidget {
   Widget mobileView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-        drawer: Drawer(child: DrawerItems(), backgroundColor: Colors.black),
+        drawer: Drawer(child: DrawerItems()),
         appBar: AppBar(
           title: const Text("My Projects",
               style: TextStyle(

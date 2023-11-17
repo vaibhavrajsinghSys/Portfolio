@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/Utils/screenSize.dart';
+import 'package:portfolio/View/Card/HomePageCard.dart';
 import 'package:portfolio/View/Drawer/AppDrawer.dart';
 import 'package:provider/provider.dart';
 
@@ -56,14 +57,16 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget mobileView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-        drawer: Drawer(child: DrawerItems(), backgroundColor: Colors.black),
+        drawer: Drawer(child: DrawerItems()),
         appBar: AppBar(
           title: const Text("Portfolio",
               style: TextStyle(
                   fontFamily: "Borel", color: Colors.white, fontSize: 25)),
         ),
         body: SingleChildScrollView(
-          child: Column(children: []),
+          child: Column(children: [
+            HomePageCard(),
+          ]),
         ),
       ),
     );
