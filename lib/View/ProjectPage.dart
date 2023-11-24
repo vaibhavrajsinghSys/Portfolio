@@ -2,20 +2,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/Utils/screenSize.dart';
-import 'package:portfolio/View/Card/HomePageCard.dart';
+import 'package:portfolio/View/Appbar/trailingNavigationButtons.dart';
 import 'package:portfolio/View/Drawer/AppDrawer.dart';
 import 'package:provider/provider.dart';
 
-import 'Appbar/trailingNavigationButtons.dart';
+class ProjectPage extends StatelessWidget {
+  const ProjectPage({super.key});
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     ScreenSize screenSize = ScreenSize();
@@ -36,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget desktopView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-          appBar: trailingNavigationButtons(screenSizeValue, context, true),
+          appBar: trailingNavigationButtons(screenSizeValue, context, false),
           body: SingleChildScrollView(
             child: Column(children: []),
           )),
@@ -46,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget tableView(Size screenSizeValue) {
     return Consumer(
       builder: (context, stateManager, child) => Scaffold(
-        appBar: trailingNavigationButtons(screenSizeValue, context, true),
+        appBar: trailingNavigationButtons(screenSizeValue, context, false),
         body: SingleChildScrollView(
           child: Column(children: []),
         ),
@@ -59,14 +52,12 @@ class _MyHomePageState extends State<MyHomePage> {
       builder: (context, stateManager, child) => Scaffold(
         drawer: Drawer(child: DrawerItems()),
         appBar: AppBar(
-          title: const Text("Portfolio",
+          title: const Text("My Projects",
               style: TextStyle(
                   fontFamily: "Borel", color: Colors.white, fontSize: 25)),
         ),
         body: SingleChildScrollView(
-          child: Column(children: [
-            HomePageCard(),
-          ]),
+          child: Column(children: []),
         ),
       ),
     );
