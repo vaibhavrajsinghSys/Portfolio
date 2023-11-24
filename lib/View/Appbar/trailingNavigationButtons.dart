@@ -24,8 +24,6 @@ AppBar trailingNavigationButtons(
               Navigator.pushNamed(context, 'projects');
             }
           },
-          color: Colors.black,
-          hoverColor: Colors.white12,
           child: const Text("Projects",
               style: TextStyle(
                   fontFamily: "Borel", color: Colors.white, fontSize: 20)),
@@ -39,8 +37,6 @@ AppBar trailingNavigationButtons(
               Navigator.pushNamed(context, 'about');
             }
           },
-          color: Colors.black,
-          hoverColor: Colors.white12,
           child: const Text("About",
               style: TextStyle(
                   fontFamily: "Borel", color: Colors.white, fontSize: 20)),
@@ -54,8 +50,6 @@ AppBar trailingNavigationButtons(
               Navigator.pushNamed(context, 'contact');
             }
           },
-          color: Colors.black,
-          hoverColor: Colors.white12,
           child: const Text("Contact",
               style: TextStyle(
                   fontFamily: "Borel", color: Colors.white, fontSize: 20)),

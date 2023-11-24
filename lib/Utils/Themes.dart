@@ -6,28 +6,31 @@ class CustomThemes {
   final lightThemes = ThemeData(
     scaffoldBackgroundColor: lightCreamColor,
     appBarTheme: AppBarTheme(
-      centerTitle: true,
-      toolbarHeight: 80,
+      centerTitle: false,
+      toolbarHeight: 70,
       color: lightAppbarBackgroundColor,
       shadowColor: lightAppbarBackgroundColor.withOpacity(0.5),
     ),
     drawerTheme: DrawerThemeData(
         width: 230, backgroundColor: lightDrawerColor.withOpacity(0.9)),
     iconTheme: IconThemeData(color: lightIconThemeColor),
-    buttonTheme: ButtonThemeData(buttonColor: lightButtonBackgroundColor),
+    buttonTheme: ButtonThemeData(
+        hoverColor: lightButtonBackgroundColor.withOpacity(0.9)),
   );
 //   dark theme
   final darkTheme = ThemeData(
-      scaffoldBackgroundColor: darkCreamColor,
-      appBarTheme: AppBarTheme(
-          centerTitle: true,
-          toolbarHeight: 80,
-          color: darkAppbarBackgroundColor,
-          shadowColor: darkAppbarBackgroundColor.withOpacity(0.5)),
-      drawerTheme: DrawerThemeData(
-          width: 230, backgroundColor: darkDrawerColor.withOpacity(0.9)),
-      iconTheme: IconThemeData(color: darkIconThemeColor),
-      buttonTheme: ButtonThemeData(buttonColor: darkButtonBackgroundColor));
+    scaffoldBackgroundColor: darkCreamColor,
+    appBarTheme: AppBarTheme(
+        centerTitle: false,
+        toolbarHeight: 70,
+        color: darkAppbarBackgroundColor,
+        shadowColor: darkAppbarBackgroundColor.withOpacity(0.5)),
+    drawerTheme: DrawerThemeData(
+        width: 230, backgroundColor: darkDrawerColor.withOpacity(0.9)),
+    iconTheme: IconThemeData(color: darkIconThemeColor),
+    buttonTheme:
+        ButtonThemeData(hoverColor: darkButtonBackgroundColor.withOpacity(0.9)),
+  );
 
 //  theme color for page.
   static Color lightCreamColor = const Color.fromRGBO(246, 253, 195, 1);
